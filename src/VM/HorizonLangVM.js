@@ -10,7 +10,7 @@ function connectToFoundServer(addr) {
 
     // Handle connection open
     peerConnection.on('open', () => {
-        console.log(`Connected to peer at ws://${PEER_IP}:${PEER_PORT}`);
+        console.log(`Connected to peer at ws://${addr.remoteIPAddress}:${HORIZON_SERVER_PORT}`);
         //peerConnection.send('Hello to the peer!');
     });
 
