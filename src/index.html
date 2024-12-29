@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleLang Compiler</title>
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/antlr4/4.9.2/antlr4.js"></script>
+  <script type="module" src="HorizonLangLexer.js"></script>
+  <script type="module" src="HorizonLangParser.js"></script>
+  <script type="module" src="HorizonLangListener.js"></script>
+</head>
+<body>
+  <textarea id="code" placeholder="Write your code here..."></textarea>
+  <button onclick="compile()">Compile</button>
+  <pre id="output"></pre>
+
+  <script src="compiler.js"></script>
+</body>
+</html>
