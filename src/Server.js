@@ -71,10 +71,13 @@ function startServer(cb=null) {
     udpSocket.on('message', (msg, rinfo) => {
         if (rinfo.address !== localIP) {
             console.log(`Discovered server: ${rinfo.address}:${rinfo.port} - ${msg}, local address: ${localIP}`);
-            const newMember = new PoolMember(rinfo.address)
-            poolMembers.push(newMember);
-            if (cb) {
-              cb(newMember);
+            const newMember = new PoolMember(rinfo.address);
+            if (!alreadyDiscovered(newMember)) {
+                console.log(` ===> New member discovered, adding... `);
+                poolMembers.push(newMember);
+                if (cb) {
+                cb(newMember);
+                }
             }
         }
     });
