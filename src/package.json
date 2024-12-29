@@ -12,6 +12,7 @@
   "dependencies": {
     "mic": "^2.1.2",
     "onnxruntime-node": "^1.20.1",
-    "opencv4nodejs-prebuilt-install": "^4.1.131"
+    "opencv4nodejs-prebuilt-install": "^4.1.131",
+    "ws": "^8.18.0"
   }
 }

@@ -1,5 +1,5 @@
 import { startServer, poolMembers } from '../Server.js';
-import { WebSocket } from 'ws';
+import { WebSocket, WebSocketServer } from 'ws';
 
 const HORIZON_SERVER_PORT = 2066;
 
@@ -33,7 +33,7 @@ function connectToFoundServer(addr) {
 }
 
 // Create a WebSocket server on port HORIZON_SERVER_PORT
-const wss = new WebSocket.Server({ port: HORIZON_SERVER_PORT });
+const wss = new WebSocketServer({ port: HORIZON_SERVER_PORT });
 
 console.log('WebSocket server is running on ws://localhost:8080');
 
