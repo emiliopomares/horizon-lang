@@ -72,11 +72,11 @@ function startServer(cb=null) {
         if (rinfo.address !== localIP) {
             console.log(`Discovered server: ${rinfo.address}:${rinfo.port} - ${msg}, local address: ${localIP}`);
             const newMember = new PoolMember(rinfo.address);
-            if (!alreadyDiscovered(newMember)) {
+            if (!alreadyDiscovered(rinfo.address)) {
                 console.log(` ===> New member discovered, adding... `);
                 poolMembers.push(newMember);
                 if (cb) {
-                cb(newMember);
+                    cb(newMember);
                 }
             }
         }
