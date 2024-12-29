@@ -18,6 +18,17 @@ class PoolMember {
     }
 }
 
+let poolMembers = [];
+
+function alreadyDiscovered(addr) {
+    for (var m of poolMembers) {
+        if (m.remoteIPAddress == addr) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Helper function to get the local IP address
 function getLocalIPAddress() {
     const interfaces = os.networkInterfaces();
@@ -32,7 +43,6 @@ function getLocalIPAddress() {
 }
 
 const localIP = getLocalIPAddress();
-let poolMembers = [];
 
 // Function to start the discovery server
 function startServer(cb=null) {

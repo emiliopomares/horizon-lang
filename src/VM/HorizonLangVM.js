@@ -32,6 +32,37 @@ function connectToFoundServer(addr) {
     connectedPeers.push(peerConnection);
 }
 
+// Create a WebSocket server on port HORIZON_SERVER_PORT
+const wss = new WebSocket.Server({ port: HORIZON_SERVER_PORT });
+
+console.log('WebSocket server is running on ws://localhost:8080');
+
+// Handle incoming connections
+wss.on('connection', (ws) => {
+    console.log('New client connected');
+
+    // Send a welcome message to the client
+    ws.send('Welcome to the WebSocket server!');
+
+    // Listen for messages from the client
+    ws.on('message', (message) => {
+        console.log(`Received: ${message}`);
+
+        // Echo the message back to the client
+        ws.send(`Server received: ${message}`);
+    });
+
+    // Handle client disconnect
+    ws.on('close', () => {
+        console.log('Client disconnected');
+    });
+
+    // Handle errors
+    ws.on('error', (error) => {
+        console.error('WebSocket error:', error);
+    });
+});
+
 // Start the discovery server
 startServer(connectToFoundServer);
 
