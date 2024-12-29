@@ -1,4 +1,5 @@
 import { startServer, poolMembers } from '../Server.js';
+import { WebSocket } from 'ws';
 
 const HORIZON_SERVER_PORT = 2066;
 
